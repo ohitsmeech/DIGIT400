@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Digit 400</title>
+        <meta name="viewport" content="width=device-width" initial-scale="1">
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+              rel="stylesheet">
+        <!--MATERIAL ICONS -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        <!--Favicons -->
+        <link href="{{ url_for('static', filename='images/favicon.ico') }}" rel=" shortcut">
+        <link href="{{url_for('static', filename='favicon..ico')}}" rel="shortcut icon">
+        
+        
+        <script>
+            //modal intializer
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+        })    
+        </script>
+        
+    </head>
+    <body>
+        <header>
+            <!-- NAV -->
+            <ol class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/" title="Home">
+                    <img alt="Site" style="max-width: 120px; margin-top: -17px; sr" src="{{ url_for('static', filename='images/mainlogo.png') }}">
+                    </a>
+                </li>
+                {% if session.logged_in %} 
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard" title="Dashboard"><i class="material-icons">lightbulb_outline</i>Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="#" title="About"><i class="material-icons">pets</i>About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" title="logout"><i class="material-icons">stop</i>logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <!-- Button trigger modal -->
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" title="Login / Register"><i class="material-icons">face</i>Log in / Register
+                    </a>
+                     <!--End Button Trigger modal -->
+                </li>
+                {% endif %}
+            </ol> <!-- END NAV-->
+            
+            <!-- Log in register Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <!--Log in form -->
+                     <div class="container-fluid">
+                         <!--If something doesn't work check here, copied from header -->
+                        <form action="" class="form-inline" method="post">
+                            <input style="margin-right: 2%" type="text" class="form-control" placeholder="Username" name="username" value="">
+                            <input type="password" class="form-control" placeholder="Password" name="password" value="">
+                            <input style="margin-top: 2%" class="btn btn-secondary" type="button" value="Login">
+                            
+                            <div class="container">
+                                <br>&nbsp;
+                                <p>No account?<a href="/register/">Register Here</a>.</p>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <!--End log in Modal  -->
+            
+         </header>
+        
+        
+       <div class="container">
+           
+        <h1>Hello World!</h1>
+           
+           
+        </div>
+        
+        <a href="#"><!--If you wanted to mute the audio you can add a muted tag <muted="muted" -->
+            <video loop muted="muted" autoplay="autoplay" poster="/static/images/space_cats.png" style="width: 100%; max-height: 80%" alt="two cute kitties video">
+                This is a cute video of two cute Kitties
+                <source src="/static/videos/space_cats.mp4" type="video/mp4"> 
+            </video>
+        </a>
+        
+        
+        <!--Bootstrap dependencies and JS libraries--> 
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    
+    </body>
+    
+</html>

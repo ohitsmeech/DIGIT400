@@ -1,0 +1,15 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+<h1>500 - Internal Service Error</h1>
+
+<p>Oops! It ain't you fault playa</p>
+
+<a href="javascript:history.go(-1)"><button type="button" class="btn btn-warning">Go back Playa</button></a>
+
+<!-- For Debugging purposes only -->
+<code>{{ error }}</code>
+<img class="fixed-bottom" src="/static/images/dancecat.gif" width="35%" style="float: right;">
+     
+{% endblock %}

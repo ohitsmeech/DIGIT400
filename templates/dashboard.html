@@ -1,0 +1,107 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin: 5%">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="card">
+                    <div class="card-header">
+                    Featured
+                    </div>
+            <div class="card-body">
+                <h5 class="card-title">CAT HOME</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              
+                    {% for i in APP_CONTENT["Home"]  %}
+
+                    <a href="{{i[1]}}" class="btn btn-primary">{{i[0]}}</a>
+              
+                    {% endfor %}              
+              
+          </div>
+        </div>
+                        </div>
+
+
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="card" style="width: 18rem;">
+            </div>
+                <div class="card">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                        <div class="card-body">
+                            <h5 class="card-title">CAT PROFILE</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                              {% for i in APP_CONTENT["Profile"]  %}
+
+                            <a href="{{i[1]}}" class="btn btn-primary">{{i[0]}}</a>
+
+                              {% endfor %}
+
+                        </div>
+                </div>
+        </div>
+
+
+
+       <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+           <div class="card">
+            </div>
+                 <div class="card">
+                    <div class="card-header">
+                    Featured
+                   </div>
+                       <div class="card-body">
+                       <h5 class="card-title">CAT MESSAGES</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                          {% for i in APP_CONTENT["Messages"]  %}
+
+                        <a href="{{i[1]}}" class="btn btn-primary">{{i[0]}}</a>
+
+                          {% endfor %}
+                      </div>
+            </div> 
+       </div>
+
+
+
+       <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+            <div class="card">
+                  <div class="card-header">
+                    Featured
+                  </div>
+                      <div class="card-body">
+                        <h5 class="card-title">CAT SETTINGS</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                        {% for i in APP_CONTENT["Settings"]  %}
+
+                        <a href="{{i[1]}}" class="btn btn-primary">{{i[0]}}</a>
+
+                          {% endfor %}
+                      </div>
+            </div>
+      </div>
+ </div>
+
+{% endblock%}
