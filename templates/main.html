@@ -20,7 +20,15 @@
                 $('#myInput').trigger('focus')
         })    
         </script>
-        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116504215-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-116504215-1');
+        </script>
     </head>
     <body>
         <header>
@@ -40,7 +48,7 @@
                     <a class="nav-link" href="#" title="About"><i class="material-icons">pets</i>About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" title="logout"><i class="material-icons">stop</i>logout</a>
+                    <a class="nav-link" href="/logout/" title="logout"><i class="material-icons">stop</i>logout</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
