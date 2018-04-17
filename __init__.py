@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, url_for, redirect, request, session, make_response
+from flask import Flask, render_template, flash, url_for, redirect, request, session, make_response, send_file, send_from_directory, jsonify
 from wtforms import Form, BooleanField, TextField, PasswordField, validators
 from datetime import datetime, timedelta
 from passlib.hash import sha256_crypt
@@ -160,6 +160,38 @@ def register_page():
                                             
     except Exception as e:
         return(str(e)) # fore debugging purposes only!!
+
+    
+ #Background Process   
+@app.route('/background_process/', methods=['GET', 'POST'])
+@login_required
+def background_process():
+    try:
+
+        lang = request.args.get("proglang", 0, type=str)
+        if lang.lower() == 'python':
+            return jsonify(result="You are wise!")
+        else:
+            return jsonify(result="Try again.")
+
+    except Exception as e:
+        return(str(e)) #remove for production    
+    
+    
+    
+#Jasonify     
+@app.route('/jsonify/', methods=["GET", "POST"])
+@login_required
+def json_stuff():
+    try:
+
+        return render_template("jsonify.html")
+
+    except Exception as e:
+        return(str(e)) #remove for production    
+    
+    
+    
     
 @app.route("/sitemap.xml/", methods=["GET"])
 def sitemap():
@@ -182,22 +214,31 @@ def sitemap():
         return response
     except Excpetion as e:
             return(str(e)) #For debugging purposes only!!
+
+        
         
 @app.route("/robots.txt/")
 def robots():
     return("User-agent:*\nDisallow: /register/\nDisallow: /login/") #Disallows some robot traffic 
 
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html")
+
+
 
 @app.errorhandler(405)
 def method_not_allowed(e):
     return render_template("405.html")
 
+
+
 @app.errorhandler(500)
 def int_server_error(e):
     return render_template("500.html", error = e)
+
 
 if __name__ == "__main__":
     app.run()

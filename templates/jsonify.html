@@ -1,0 +1,56 @@
+{% extends "header.html" %}
+{% block body %}
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		var jQuery__1 = $.noConflict(true);
+	</script>
+
+<!--Code for JSON handling-->
+	<script type="text/javascript">
+			jQuery__1(function() {
+			  jQuery__1("a#process_input").bind("click", function() {
+				jQuery__1.getJSON("/background_process/", {
+				  proglang: jQuery__1("input[name='proglang']").val(),
+				}, function(data) {
+				  jQuery__1("#result").text(data.result);
+				});
+				return false;
+			  });
+			});
+		</script>
+
+
+</head>
+<!-- JSON Example -->
+<body>
+	<div class="container">
+		<!-- JSON Example -->
+	<h3>Which is the best programming language of them all?</h3>
+		<form method="post">
+			<input type="text" size="5" name="proglang">
+			<a href="#" id="process_input"><button class="btn btn-default">Submit</button></a>
+		</form>
+	<p id="result"></p>
+
+	<!-- Animate Example -->
+	<button id="go">&raquo; Run</button>
+	<div id="block">Hello!</div>
+	
+	<!-- Code for animate()-->
+	<script>
+	jQuery__1( "#go" ).click(function() {
+		jQuery__1( "#block" ).animate( {
+			width: "70%",
+			opacity: 0.4,
+			marginLeft: "0.6in",
+			fontSize: "3em",
+			borderWidth: "10px"
+		}, 1500 );
+	});
+	</script>
+
+	</div>
+</body>
+
+{% endblock %}
